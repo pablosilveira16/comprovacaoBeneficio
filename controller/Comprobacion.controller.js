@@ -421,7 +421,11 @@ sap.ui.define([
             oModel.setProperty("/BeneficiosActuales", aBeneficios.filter(function(filtro){
                 return filtro.id ==  sDependiente})
             );
-                },
+        },
+
+        handlePaso1Complete: function(oEvent) {
+            
+        },
 
         onMessagePopoverPress: function(oEvent) {
             //Sacado de Sample de SAPUI5

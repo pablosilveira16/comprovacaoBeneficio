@@ -17,7 +17,7 @@
             </f:SimpleForm>
 
             <Wizard id="wizardComprobacion" complete="wizardCompletedHandler" showNextButton="true">
-                <WizardStep id="paso1" title="{i18n>PASO1_TITULO}" validated="true">
+                <WizardStep id="paso1" title="{i18n>PASO1_TITULO}" validated="true" complete="handlePaso1Complete">
                    <f:SimpleForm layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
                         <f:content>
                             <Label text="{i18n>PASO1_NOMBRE}" />
@@ -131,7 +131,7 @@
                     </f:SimpleForm>
                 </WizardStep>
                 <WizardStep id="paso4" title="{i18n>PASO4_TITULO}" validated="false">
-                    <Table items="{/Meses}" width="99%" >
+                    <Table items="{/Meses}" width="95%" >
 						<columns>
 							<Column>
 								<Label text="{i18n>PERIODO}" />
@@ -251,10 +251,10 @@
                     visible="{= ${message>/}.length > 0 }"
                     type="Emphasized"
                     press="onMessagePopoverPress" />
-                <Button text="{i18n>ELIMINAR}" type="Reject" icon="sap-icon://sys-cancel" enabled="false" />
+                <Button text="{= ${device>/system/phone}? '': ${i18n>ELIMINAR}}" type="Reject" icon="sap-icon://sys-cancel" enabled="false" />
 				<ToolbarSpacer/>
-				<Button text="{i18n>GUARDAR}" type="Accept" icon="sap-icon://save" enabled="{= ${message>/}.length === 0 &amp;&amp; ${/Completo}}" />
-				<Button text="{i18n>ENVIAR}" icon="sap-icon://paper-plane" enabled="{= ${message>/}.length === 0 &amp;&amp; ${/Completo}}" />
+				<Button text="{= ${device>/system/phone}? '': ${i18n>GUARDAR}}" type="Accept" icon="sap-icon://save" enabled="{= ${message>/}.length === 0 &amp;&amp; ${/Completo}}" />
+				<Button text="{= ${device>/system/phone}? '': ${i18n>ENVIAR}}" icon="sap-icon://paper-plane" enabled="{= ${message>/}.length === 0 &amp;&amp; ${/Completo}}" />
 			</Toolbar>
 		</footer>
     </Page>
