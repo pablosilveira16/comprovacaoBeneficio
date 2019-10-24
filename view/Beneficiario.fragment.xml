@@ -1,0 +1,32 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog title="Selecione um benefício ativo">
+    	<content>
+    		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="5" emptySpanL="5" emptySpanM="5" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+                <f:content>
+                    <!--<Input enabled="false" value="Pablo Silveira" /> -->
+                    <Select
+                    	change="handleChangeDependiente"
+                        forceSelection="true"
+                        items="{/Dependientes}" 
+                        selectedKey="{/Dependiente}">
+                        <core:Item text="{nombre}" key="{id}" />
+                    </Select>
+                    <Select
+                        forceSelection="true"
+                        items="{/BeneficiosActuales}" 
+                        selectedKey="{/BeneficioKey}">
+                        <core:Item text="{nombre}" key="{key}" />
+                    </Select>
+                </f:content>
+            </f:SimpleForm>
+    	</content>
+    	<beginButton>
+    		<Button
+    			text="{i18n>AVANCAR}"
+    			press="handleAcceptBeneficiario" />
+    	</beginButton>
+    </Dialog>
+</core:FragmentDefinition>
